@@ -7,6 +7,6 @@ import java.util.*
 @Entity
 data class DiaryEntity(
     @PrimaryKey(autoGenerate = true) var id: Long = 0L,
-    val date: Date?,
-    val entry: String?
+    val date: Date? = null,
+    val entry: String? = null
 )

@@ -1,4 +1,4 @@
-package com.example.denk.data
+package com.example.denk.data.room
 
 import android.content.Context
 import androidx.room.Database
@@ -12,7 +12,7 @@ abstract class DiaryDatabase: RoomDatabase() {
 
     companion object{
             private var INSTANCE: DiaryDatabase? = null
-            fun getInstance(context: Context): DiaryDatabase{
+            fun getInstance(context: Context): DiaryDatabase {
                 var instance = INSTANCE
                 if(instance == null){
                     instance = Room.databaseBuilder(

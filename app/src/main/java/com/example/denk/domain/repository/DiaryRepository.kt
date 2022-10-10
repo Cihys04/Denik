@@ -1,27 +1,18 @@
 package com.example.denk.domain.repository
 
-import com.example.denk.data.DiaryDao
-import com.example.denk.data.DiaryEntity
-import kotlinx.coroutines.flow.StateFlow
+import com.example.denk.data.room.DiaryEntity
+import kotlinx.coroutines.flow.Flow
 
-class DiaryRepository(private val dao: DiaryDao) {
+interface DiaryRepository {
 
-    val showAll : List<DiaryEntity> = dao.displayAll()
+    fun getEntries(): Flow<List<DiaryEntity>>
 
-    suspend fun findById(id : Long) : DiaryEntity?{
-        return dao.findById(id)
-    }
+    suspend fun findById(id : Long) : DiaryEntity?
 
-    suspend fun insertEntry(entity: DiaryEntity){
-        return dao.insertDiaryEntry(entity)
-    }
+    suspend fun insertEntry(entity: DiaryEntity)
 
-    suspend fun deleteEntry(entity: DiaryEntity){
-        return dao.deleteDiaryEntry(entity)
-    }
+    suspend fun deleteEntry(entity: DiaryEntity)
 
-    suspend fun updateDiaryEntry(entity: DiaryEntity){
-        return dao.updateDiaryEntry(entity)
-    }
+    suspend fun updateEntry(entity: DiaryEntity)
 
 }

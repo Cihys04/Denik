@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import java.util.*
 
 @Entity
-data class DiaryEntity(
+data class Entry(
     @PrimaryKey(autoGenerate = true) val id: Long = 0L,
     val date: Date,
     val entry: String
